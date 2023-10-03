@@ -1,5 +1,10 @@
 provider "aws" {
   region = "us-east-1"
+  default_tags {
+    tags = {
+      purpose    = "assignment"
+    }
+}
 }
 
 resource "aws_instance" "ec2" {
@@ -107,11 +112,12 @@ resource "aws_route_table" "private-rt" {
 
 resource "aws_route_table_association" "public-subent-1" {
     subnet_id = "${aws_subnet.public_subent_01.id}"
-    route_table_id = "${aws_route_table.public-rt.id}"
+   route_table_id = "${aws_route_table.public-rt.id}"
+   
   
 }
 resource "aws_route_table_association" "rivate-subent-1" {
-    subnet_id = "${aws_subnet.public_subent_01.id}"
-    route_table_id = "${aws_route_table.private-rt.id}"
+    subnet_id = "${aws_subnet.private_subent_01.id}"
+   route_table_id = "${aws_route_table.private-rt.id}"
   
 }
