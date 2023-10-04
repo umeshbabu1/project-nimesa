@@ -42,7 +42,7 @@ weather_data = get_weather_data()
 if not weather_data:
         print("0")
 while True:
-        print("Options:")1
+        print("Options:")
         
         print("1. Get tempreture")
         print("2. Get Wind Speed")
